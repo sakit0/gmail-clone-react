@@ -1,6 +1,7 @@
 import { Checkbox, IconButton } from "@material-ui/core";
 import { LabelImportantOutlined, StarBorderOutlined } from "@material-ui/icons";
 import { VFC } from "react";
+import { useHistory } from "react-router-dom";
 import "./emailRow.css";
 
 interface Props {
@@ -18,8 +19,9 @@ export const EmailRow: VFC<Props> = ({
   description,
   time,
 }) => {
+  const history = useHistory();
   return (
-    <div className="emailRow">
+    <div onClick={() => history.push("/mail")} className="emailRow">
       <div className="emailRow__options">
         <Checkbox />
         <IconButton>

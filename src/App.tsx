@@ -1,8 +1,8 @@
-import { Mail } from "@material-ui/icons";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 import { EmailList } from "./EmailList";
 import { Header } from "./Header";
+import { Mail } from "./Mail";
 import { Sidebar } from "./Sidebar";
 
 function App() {
