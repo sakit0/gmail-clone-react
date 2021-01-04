@@ -1,5 +1,4 @@
 import { Button, IconButton } from "@material-ui/core";
-import { VFC } from "react";
 import "./sidebar.css";
 import AddIcon from "@material-ui/icons/Add";
 import { SidebarOption } from "./SidebarOption";
@@ -15,13 +14,17 @@ import {
   Phone,
   Star,
 } from "@material-ui/icons";
+import { useDispatch } from "react-redux";
+import { opneSendMessage } from "./features/mailSlice";
 
-export const Sidebar: VFC = () => {
+export const Sidebar = () => {
+  const dispatch = useDispatch();
   return (
     <div className="sidebar">
       <Button
         className="sidebar__compose"
         startIcon={<AddIcon fontSize="large" />}
+        onClick={() => dispatch(opneSendMessage())}
       >
         compose
       </Button>

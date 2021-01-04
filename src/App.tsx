@@ -4,8 +4,14 @@ import { EmailList } from "./EmailList";
 import { Header } from "./Header";
 import { Mail } from "./Mail";
 import { Sidebar } from "./Sidebar";
+import { SendMail } from "./SendMail";
+import { useSelector } from "react-redux";
+import { RootState } from "./app/store";
 
-function App() {
+export const App = () => {
+  const sendMessageIsOpen = useSelector(
+    (state: RootState) => state.mail.sendMessageIsOpen
+  );
   return (
     <Router>
       <div className="app">
@@ -21,9 +27,8 @@ function App() {
             </Route>
           </Switch>
         </div>
+        {sendMessageIsOpen && <SendMail />}
       </div>
     </Router>
   );
-}
-
-export default App;
+};
